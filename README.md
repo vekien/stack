@@ -21,3 +21,4 @@ It will also:
 - 1 CPU
 - 1024 MB RAM
 - DB: tester / tester
+- DB Viewer: http://mysql.local
