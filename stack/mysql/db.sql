@@ -1,0 +1,5 @@
+CREATE DATABASE tester;
+CREATE USER tester@localhost IDENTIFIED BY 'tester';
+GRANT ALL PRIVILEGES ON *.* TO tester@'%' IDENTIFIED BY 'tester';
+GRANT ALL PRIVILEGES ON *.* TO tester@localhost IDENTIFIED BY 'tester';
+FLUSH PRIVILEGES;
