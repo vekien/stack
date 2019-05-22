@@ -22,3 +22,18 @@ It will also:
 - 1024 MB RAM
 - DB: tester / tester
 - DB Viewer: http://mysql.local
+
+# Starting the stack
+
+## Pre-Req
+
+- Install vagrant: https://www.vagrantup.com/
+- Install vagrant host manager plugin: https://github.com/devopsgroup-io/vagrant-hostmanager
+- clone the repo
+- cd into `stack`
+- edit `Vagrantfile` and put in a custom url you want
+
+## On computer boot
+
+- run: `vagrant up`
+- profit
