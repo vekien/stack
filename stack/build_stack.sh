@@ -27,12 +27,12 @@ sudo cp /stack/stack/nginx/nginx.conf /etc/nginx/nginx.conf
 echo "Installing: PHP + Composer"
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt-get update -y
-sudo apt-get install -y php7.3-fpm php-apcu php-imagick php7.3-dev php7.3-cli php7.3-tidy php7.3-json
-sudo apt-get install -y php7.3-intl php7.3-mysql php7.3-sqlite php7.3-curl php7.3-gd
-sudo apt-get install -y php7.3-mbstring php7.3-dom php7.3-xml php7.3-zip php7.3-bcmath
-sudo sed -i 's|display_errors = Off|display_errors = On|' /etc/php/7.3/fpm/php.ini
-sudo sed -i 's|memory_limit = 128M|memory_limit = -1|' /etc/php/7.3/fpm/php.ini
-sudo sed -i "s|www-data|$USER|" /etc/php/7.3/fpm/pool.d/www.conf
+sudo apt-get install -y php7.4-fpm php-apcu php-imagick php7.4-dev php7.4-cli php7.4-tidy php7.4-json
+sudo apt-get install -y php7.4-intl php7.4-mysql php7.4-sqlite php7.4-curl php7.4-gd
+sudo apt-get install -y php7.4-mbstring php7.4-dom php7.4-xml php7.4-zip php7.4-bcmath
+sudo sed -i 's|display_errors = Off|display_errors = On|' /etc/php/7.4/fpm/php.ini
+sudo sed -i 's|memory_limit = 128M|memory_limit = -1|' /etc/php/7.4/fpm/php.ini
+sudo sed -i "s|www-data|$USER|" /etc/php/7.4/fpm/pool.d/www.conf
 
 #
 # MySQL
@@ -52,10 +52,10 @@ git clone https://github.com/phpredis/phpredis.git
 cd phpredis && phpize && ./configure && make && sudo make install
 cd /vagrant
 rm -rf /vagrant/phpredis
-sudo echo "extension=redis.so" > /etc/php/7.3/mods-available/redis.ini
-sudo ln -sf /etc/php/7.3/mods-available/redis.ini /etc/php/7.3/fpm/conf.d/20-redis.ini
-sudo ln -sf /etc/php/7.3/mods-available/redis.ini /etc/php/7.3/cli/conf.d/20-redis.ini
-sudo service php7.3-fpm restart
+sudo echo "extension=redis.so" > /etc/php/7.4/mods-available/redis.ini
+sudo ln -sf /etc/php/7.4/mods-available/redis.ini /etc/php/7.4/fpm/conf.d/20-redis.ini
+sudo ln -sf /etc/php/7.4/mods-available/redis.ini /etc/php/7.4/cli/conf.d/20-redis.ini
+sudo service php7.4-fpm restart
 
 #
 # This is more Symfony specific...
@@ -80,7 +80,7 @@ openssl req -x509 -out /home/vagrant/localhost.crt -keyout /home/vagrant/localho
 #
 echo "Finishing up ..."
 sudo service nginx restart
-sudo service php7.3-fpm restart
+sudo service php7.4-fpm restart
 sudo apt-get autoremove -y
 sudo apt-get update -y
 sudo apt-get upgrade -y
